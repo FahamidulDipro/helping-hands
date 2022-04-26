@@ -1,9 +1,10 @@
 import React from 'react';
+import Services from '../Services/Services';
 
 const Home = () => {
     return (
         <div className='mt-5'>
-            <h1>Home</h1>
+         <Services></Services>
         </div>
     );
 };
