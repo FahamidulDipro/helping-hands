@@ -6,7 +6,7 @@ const Navigation = () => {
     return (
         <Navbar bg="light" expand="lg">
         <Container >
-          <Navbar.Brand to="#" className='fw-bold text-success'>Helping Hands</Navbar.Brand>
+          <Navbar.Brand to="#" ><NavLink to="/" className='fw-bold text-success text-decoration-none'>Helping Hands</NavLink></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" >
             <Nav
@@ -25,8 +25,8 @@ const Navigation = () => {
               <NavLink to="/blog" className={({isActive})=>isActive?'active-link':'link'}>
                 Blog
               </NavLink>
-              <Button className='mx-3'>Register</Button>
-              <Button variant='dark'>Admin</Button>
+              <Button className='mx-3 mt-1'>Register</Button>
+              <Button variant='dark mt-1'>Admin</Button>
             </Nav>
             <Form className="d-flex">
               <FormControl
