@@ -1,17 +1,18 @@
 import React from 'react';
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { signOut } from 'firebase/auth';
+
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Navigation.css';
 const Navigation = () => {
   const [user] = useAuthState(auth);
-
+   const logout = ()=>{
+     signOut(auth);
+   }
     return (
         <Navbar bg="light" expand="lg">
-          {
-            console.log(user)
-          }
         <Container >
           <Navbar.Brand to="#" ><NavLink to="/" className='fw-bold text-success text-decoration-none'>Helping Hands</NavLink></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -33,12 +34,14 @@ const Navigation = () => {
                 Blog
               </NavLink>
               {
-                user?<Button variant='primary mt-1'>Logout</Button>:<span>   <Button className='mx-3 mt-1' ><NavLink to='/login' className="text-decoration-none text-light">Register</NavLink></Button>
+                user?<Button variant='primary mt-1' onClick={logout}>Logout</Button>:<span>   <Button className='mx-3 mt-1' ><NavLink to='/login' className="text-decoration-none text-light">Register</NavLink></Button>
                 <Button variant='dark mt-1'>Admin</Button></span>
               }
            
             </Nav>
-            <span style={{fontWeight:'bold'}}><img src={user?.photoURL} alt="UserImage" style={{height:'50px',borderRadius:'50%' ,marginRight:'20px'}}/>{user?.displayName}</span>
+           {
+             user?<span style={{fontWeight:'bold'}}><img src={user?.photoURL} alt="UserImage" style={{height:'50px',borderRadius:'50%' ,marginRight:'20px'}}/>{user?.displayName}</span>:null
+           } 
             <Form className="d-flex">
               <FormControl
                 type="search"
