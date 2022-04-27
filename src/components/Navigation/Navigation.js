@@ -16,8 +16,8 @@ const Navigation = () => {
             >
               <NavLink to="/" className={({isActive})=>isActive?'active-link':'link'}>Home</NavLink>
                
-              <NavLink to="/donation" className={({isActive})=>isActive?'active-link':'link'}>
-                Donation
+              <NavLink to="/add-services" className={({isActive})=>isActive?'active-link':'link'}>
+                Add Services
               </NavLink>
               <NavLink to="/events" className={({isActive})=>isActive?'active-link':'link'}>
                 Events

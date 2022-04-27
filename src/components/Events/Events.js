@@ -8,6 +8,18 @@ const Events = () => {
       .then((res) => res.json())
       .then((data) => setSelectedServices(data));
   }, []);
+  const cancelHandler = (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to remove?");
+    if (confirmDelete) {
+      fetch(`http://localhost:5000/delete/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+        });
+    }
+  };
   return (
     <div className="mt-5">
       <h1>Selected Events</h1>
@@ -26,13 +38,18 @@ const Events = () => {
                   alt="171x180"
                   src={selectedService.img}
                 />
-                0
+
                 <Figure.Caption className="ms-3">
                   <h2>{selectedService.name}</h2>
                 </Figure.Caption>
               </div>
               <div>
-                <Button className="float-end position-absolute bottom-0 end-0 m-3 bg-secondary">
+                <Button
+                  className="float-end position-absolute bottom-0 end-0 m-3 bg-secondary"
+                  onClick={() => {
+                    cancelHandler(selectedService._id);
+                  }}
+                >
                   Cancel
                 </Button>
               </div>

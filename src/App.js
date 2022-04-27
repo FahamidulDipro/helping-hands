@@ -7,6 +7,7 @@ import Donation from "./components/Donation/Donation";
 import Events from "./components/Events/Events";
 import Blog from "./components/Blog/Blog";
 import NotFound from "./components/NotFound/NotFound";
+import AddServices from "./components/AddServices/AddServices";
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/donation" element={<Donation></Donation>}></Route>
+        <Route
+          path="/add-services"
+          element={<AddServices></AddServices>}
+        ></Route>
         <Route path="/events" element={<Events></Events>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
