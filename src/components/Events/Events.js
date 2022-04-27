@@ -10,12 +10,17 @@ const Events = () => {
   }, []);
   const cancelHandler = (id) => {
     const confirmDelete = window.confirm("Are you sure you want to remove?");
+
     if (confirmDelete) {
       fetch(`http://localhost:5000/delete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
         .then((result) => {
+          const remainingServices = selectedServices.filter(
+            (services) => services._id !== id
+          );
+          setSelectedServices(remainingServices);
           console.log(result);
         });
     }
