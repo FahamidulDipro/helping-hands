@@ -15,7 +15,7 @@ const Service = ({ service }) => {
       .then((result) => console.log(result));
   };
   return (
-    <Col lg={4} className="g-5">
+    <Col lg={3} className="g-5">
       <Card
         style={{ width: "18rem", borderRadius: "20px" }}
         onClick={() => selectService(_id)}
