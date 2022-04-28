@@ -9,7 +9,7 @@ const GoogleLogin = () => {
   const navigate = useNavigate();
 
   if (user) {
-    navigate("/");
+    navigate("/registerAsVolunteer");
   }
   const googleLogin = () => {
     signInWithGoogle();

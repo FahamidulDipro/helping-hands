@@ -30,6 +30,9 @@ const Navigation = () => {
               <NavLink to="/events" className={({isActive})=>isActive?'active-link':'link'}>
                 Events
               </NavLink>
+              <NavLink to="/bookings" className={({isActive})=>isActive?'active-link':'link'}>
+                Bookings
+              </NavLink>
               <NavLink to="/blog" className={({isActive})=>isActive?'active-link':'link'}>
                 Blog
               </NavLink>

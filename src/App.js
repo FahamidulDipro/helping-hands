@@ -9,6 +9,7 @@ import Blog from "./components/Blog/Blog";
 import NotFound from "./components/NotFound/NotFound";
 import AddServices from "./components/AddServices/AddServices";
 import Login from "./components/Login/Login";
+import RegisterAsVolunteer from "./components/RegisterAsVolunteer/RegisterAsVolunteer";
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
         <Route path="/events" element={<Events></Events>}></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route
+          path="/registerAsVolunteer"
+          element={<RegisterAsVolunteer></RegisterAsVolunteer>}
+        ></Route>
+
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
