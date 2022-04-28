@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound/NotFound";
 import AddServices from "./components/AddServices/AddServices";
 import Login from "./components/Login/Login";
 import RegisterAsVolunteer from "./components/RegisterAsVolunteer/RegisterAsVolunteer";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -21,9 +22,20 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route
           path="/add-services"
-          element={<AddServices></AddServices>}
+          element={
+            <RequireAuth>
+              <AddServices></AddServices>
+            </RequireAuth>
+          }
         ></Route>
-        <Route path="/events" element={<Events></Events>}></Route>
+        <Route
+          path="/events"
+          element={
+            <RequireAuth>
+              <Events></Events>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route
