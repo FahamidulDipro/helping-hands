@@ -5,6 +5,10 @@ const AddServices = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {
+    const randomNumber = Math.floor(Math.random() * 8);
+    const allColors = ['#008000','#800080','#FF0000','#F0F8FF','#FF7F50','#B22222','#FF69B4','#FFFACD']
+    const randomColor = allColors[randomNumber];
+    data["bgcolor"] =randomColor; 
     fetch("http://localhost:5000/addServices/", {
       method: "POST",
       headers: {
@@ -14,7 +18,9 @@ const AddServices = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        navigate("/");
+        navigate("/",{
+          state:randomNumber,
+        });
         console.log(result);
       });
   };

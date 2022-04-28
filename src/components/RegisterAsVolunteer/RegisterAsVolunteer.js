@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import "./RegisterAsVolunteer.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const RegisterAsVolunteer = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
@@ -23,6 +26,7 @@ const RegisterAsVolunteer = () => {
     })
       .then((res) => res.json)
       .then((result) => {
+        toast("Registration Complete!");
         console.log(result);
         navigate("/events");
       });
@@ -30,6 +34,7 @@ const RegisterAsVolunteer = () => {
 
   return (
     <section className="d-flex justify-content-center container mt-5 ">
+      <ToastContainer />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-5 shadow-lg w-50 p-3"
