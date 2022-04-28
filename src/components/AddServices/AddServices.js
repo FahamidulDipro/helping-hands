@@ -6,7 +6,7 @@ const AddServices = () => {
   const navigate = useNavigate();
   const onSubmit = (data) => {
     const randomNumber = Math.floor(Math.random() * 8);
-    const allColors = ['#008000','#800080','#FF0000','#F0F8FF','#FF7F50','#B22222','#FF69B4','#FFFACD']
+    const allColors = ['#008000','#800080','#FF0000','#00ff7f','#FF7F50','#ff8c00','#FF69B4','#0e2f44']
     const randomColor = allColors[randomNumber];
     data["bgcolor"] =randomColor; 
     fetch("http://localhost:5000/addServices/", {
