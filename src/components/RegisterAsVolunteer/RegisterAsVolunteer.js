@@ -13,7 +13,19 @@ const RegisterAsVolunteer = () => {
   }, []);
 
   const onSubmit = (data) => {
-    navigate("/events");
+    console.log(data);
+    fetch("http://localhost:5000/register-as-volunteer", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json)
+      .then((result) => {
+        console.log(result);
+        navigate("/events");
+      });
   };
 
   return (
@@ -24,7 +36,7 @@ const RegisterAsVolunteer = () => {
       >
         <h2 className="text-start mb-5">Register As A Volunteer</h2>
         <input
-          {...register("Full Name")}
+          {...register("full-name")}
           className="form-control p-3 text-secondary my-3 border-dark"
           placeholder="Full Name"
           required
